@@ -1,0 +1,190 @@
+﻿:root {
+  --bg: #f5b3cf;
+  --panel: #3b2c2b;
+  --panel-soft: #2a1f1e;
+  --accent: #87f2c0;
+  --danger: #ff4b6b;
+  --text: #f7e6f2;
+  --muted: #d9a0cc;
+  --shadow: rgba(36, 22, 22, 0.55);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Mono", "JetBrains Mono", "IBM Plex Mono", "Consolas", monospace;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.35), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(245, 230, 242, 0.4), transparent 40%),
+    linear-gradient(180deg, #f5b3cf 0%, #d9a0cc 45%, #b88acb 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  font-size: 28px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(135, 242, 192, 0.6);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 18px;
+  align-items: start;
+}
+
+.game-wrap {
+  position: relative;
+}
+
+canvas#game {
+  width: 100%;
+  height: auto;
+  border: 1px solid #5c3f4a;
+  background: #f5b3cf;
+  box-shadow: 0 18px 40px var(--shadow);
+  touch-action: none;
+}
+
+.touch-controls {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+}
+
+.touch-left,
+.touch-right {
+  position: absolute;
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.touch-left {
+  left: 14px;
+}
+
+.touch-right {
+  right: 14px;
+}
+
+.touch-btn {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  background: rgba(59, 44, 43, 0.7);
+  color: var(--text);
+  min-width: 52px;
+  min-height: 52px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.touch-btn.move {
+  min-width: 56px;
+}
+
+.touch-btn:active,
+.touch-btn.active {
+  background: rgba(135, 242, 192, 0.5);
+}
+
+.hud {
+  display: grid;
+  gap: 12px;
+}
+
+.panel {
+  background: linear-gradient(160deg, rgba(59, 44, 43, 0.95), rgba(42, 31, 30, 0.95));
+  border: 1px solid #5a3b40;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(135, 242, 192, 0.15) 40%, transparent 80%);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.panel .label {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.panel .item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 4px 0;
+}
+
+.panel .desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 960px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (pointer: coarse), (max-width: 960px) {
+  .touch-controls {
+    display: block;
+  }
+}
