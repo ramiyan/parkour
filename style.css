@@ -73,28 +73,28 @@ canvas#game {
 
 .touch-controls {
   display: none;
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+  margin-top: 10px;
+  width: 100%;
+  pointer-events: auto;
   touch-action: none;
   user-select: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: center;
 }
 
-.touch-left,
-.touch-right {
-  position: absolute;
-  bottom: 14px;
+.touch-group {
   display: flex;
   gap: 8px;
-  pointer-events: auto;
+  flex-wrap: wrap;
 }
 
 .touch-left {
-  left: 14px;
+  justify-content: flex-start;
 }
 
 .touch-right {
-  right: 14px;
+  justify-content: flex-end;
 }
 
 .touch-btn {
@@ -185,6 +185,22 @@ footer {
 
 @media (pointer: coarse), (max-width: 960px) {
   .touch-controls {
-    display: block;
+    display: grid;
+  }
+
+  .touch-btn {
+    min-width: 60px;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 560px) {
+  .touch-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .touch-left,
+  .touch-right {
+    justify-content: center;
   }
 }
