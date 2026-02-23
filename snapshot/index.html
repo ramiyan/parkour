@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neo-Chain Grapple</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="root">
+    <header>
+      <div class="title">NEO-CHAIN</div>
+      <div class="subtitle">Grapple platformer prototype (web)</div>
+    </header>
+    <main>
+      <canvas id="game" width="960" height="540" aria-label="game canvas"></canvas>
+      <aside class="hud">
+        <div class="panel">
+          <div class="label">Controls</div>
+          <div class="item"><span>Move</span><span>WASD / Arrows</span></div>
+          <div class="item"><span>Jump</span><span>Space</span></div>
+          <div class="item"><span>Grapple</span><span>Mouse / E</span></div>
+          <div class="item"><span>Dash</span><span>Shift</span></div>
+          <div class="item"><span>Release</span><span>R / Right Mouse up</span></div>
+        </div>
+        <div class="panel">
+          <div class="label">Goal</div>
+          <div class="desc">Reach the top beacon. Use grapple anchors (cyan) to swing.
+          Avoid red hazards and drones.</div>
+        </div>
+        <div class="panel">
+          <div class="label">Tips</div>
+          <div class="desc">You can pull toward the hook with W. Dashing breaks the tether.
+          Momentum matters. Wall-slide is enabled.</div>
+        </div>
+      </aside>
+    </main>
+    <footer>
+      <span>Prototype build</span>
+      <span id="status">Loading...</span>
+    </footer>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
